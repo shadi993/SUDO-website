@@ -7,7 +7,7 @@ function Menubar(){
         <nav className=" dark:bg-gray-800  border-solid border-transparent ">
             <div className=" w-full md:block rounded-l-lg">
                 <ul className=" flex w-full ">
-                    <li><a href="#" className=" block py-2 px-3 text-white hover:text-red-600">Home</a></li>
+                    <li><a onClick={()=>Homeclicked()} className=" block py-2 px-3 text-white hover:text-red-600">Home</a></li>
                     <li><a href="#" className=" block py-2 px-3 text-white hover:text-red-600">Projects</a></li>
                     <li><a href="#" className=" block py-2 px-3 text-white hover:text-red-600">Our Team</a></li>
                     <li><a href="#" className=" block py-2 px-3 text-white hover:text-red-600">Contact</a></li>

@@ -1,4 +1,7 @@
 function JoinDiscord(){
+
+    document.title= "SUDO - HOME";
+
     return(
 
         <div className=" p-10 items-center border shadow md:flex-row w-screen  dark:border-gray-700 dark:bg-slate-900 ">
