@@ -5,6 +5,11 @@ import './App.css'
 import Menubar from './menubar.jsx'
 import JoinDiscord from './JoinDiscord.jsx'
 import AboutDiscord from './assets/AboutDiscord.jsx'
+import { Routes, Route } from 'react-router-dom'
+import { Home } from './Home.jsx'
+import { Projects } from './Projects.jsx'
+import { OurTeam } from './OurTeam.jsx'
+import { Contact } from './Contact.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,9 +20,14 @@ function App() {
 
   return (
     <>
-    <Menubar/>
-    <JoinDiscord/>
-    <AboutDiscord/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/projects" element={<Projects/>}/>
+        <Route path="/our-team" element={<OurTeam/>}/>
+        <Route path="/contact" element={<Contact/>}/>  
+
+      </Routes>
+      
     </>
   )
 }
