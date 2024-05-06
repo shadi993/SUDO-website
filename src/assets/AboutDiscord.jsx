@@ -14,7 +14,7 @@ function AboutDiscord(){
             </div>
             <div className="border border-red-700 rounded-lg shadow text-white">
             <h1 className="text-center text-3xl font-bold m-3">Off-Topic channels</h1>
-            <p className="p-2">You wanna take small break? we have some off-topic channels for chatting, talking about Anime or Videogames or even share your favorite music with others.</p>
+            <p className="p-2">You wanna take small break? We have some off-topic channels for chatting, talking about Anime or Videogames or even share your favorite music with others.</p>
             </div>
         </div>
     </div>

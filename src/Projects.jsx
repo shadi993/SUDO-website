@@ -1,9 +1,11 @@
-
+import Menubar from "./menubar"
+import Footer from "./footer"
 
 export const Projects = () => {
     return (
       <>
-        <h1>Projects</h1>
+        <Menubar/>
+        <Footer/>
       </>
     )
   }

@@ -1,6 +1,7 @@
 import Menubar from './menubar.jsx'
 import JoinDiscord from './JoinDiscord.jsx'
 import AboutDiscord from './assets/AboutDiscord.jsx'
+import Footer from './footer.jsx'
 
 export const Home = () => {
   return (
@@ -8,6 +9,7 @@ export const Home = () => {
       <Menubar/>
       <JoinDiscord/>
       <AboutDiscord/>
+      <Footer/>
     </>
   )
 }

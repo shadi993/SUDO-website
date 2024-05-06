@@ -10,7 +10,7 @@ function JoinDiscord(){
                 <div className=" m-8">
                     <h1 className="text-white font-bold text-xl my-11"> Welcome to SUDO</h1>
                     <p className="text-white">Sudo is an 18+ LGBTQ+ friendly server dedicated to coding and web development<br/>Anyone with an interest is welcome to join regardless of experience level.</p>
-                    <button className=" bg-red-600 text-white p-2 rounded mx-2 my-12 text-lg hover:bg-red-800 hover:text-gray-200" type="button">Join Discord</button>
+                    <button onClick={(e) => {e.preventDefault();window.location.href='htttps://discord.gg/sudors'}} className=" bg-red-600 text-white p-2 rounded mx-2 my-12 text-lg hover:bg-red-800 hover:text-gray-200" type="button">Join Discord</button>
                 </div>
             </div>
         </div>
