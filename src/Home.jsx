@@ -1,6 +1,7 @@
 import Menubar from './menubar.jsx'
 import JoinDiscord from './JoinDiscord.jsx'
-import AboutDiscord from './assets/AboutDiscord.jsx'
+import AboutDiscord from './AboutDiscord.jsx'
+import Serverstat from './serverstat.jsx'
 import Footer from './footer.jsx'
 
 export const Home = () => {
@@ -9,6 +10,7 @@ export const Home = () => {
       <Menubar/>
       <JoinDiscord/>
       <AboutDiscord/>
+      <Serverstat/>
       <Footer/>
     </>
   )

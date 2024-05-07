@@ -12,7 +12,7 @@ function AboutDiscord(){
         <div className="grid grid-cols-3 gap-4">
             {
             weOffers.map((weoffer)=>(
-                <div className="border border-red-700 rounded-lg shadow text-white">
+            <div className="border border-red-700 rounded-lg shadow text-white">
                 <h1 className="text-center text-3xl font-bold m-3">{weoffer.title}</h1>
                 <p className="p-2">{weoffer.description}</p>
             </div>
