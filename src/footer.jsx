@@ -1,6 +1,7 @@
 function Footer(){
 
     return(
+        <footer>
         <div className=" p-10 items-center border shadow md:flex-row w-screen  dark:border-gray-700 dark:bg-black">
             <div className=" text-white grid grid-cols-3 gap-4 m-5">
                 <ul>
@@ -16,6 +17,7 @@ function Footer(){
                 </ul>
             </div>
         </div>
+        </footer>
     );
 
 }

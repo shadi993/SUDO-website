@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 function Menubar(){
 
     return(
+        <header>
         <div className=" w-full h-full bg-slate-900">
         <div className="w-full rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 bg-slate-900">
         <div className="h-full w-full bg-gray-800">
@@ -22,6 +23,7 @@ function Menubar(){
         </div>
         </div>
         </div>
+        </header>
     );
     
 }
