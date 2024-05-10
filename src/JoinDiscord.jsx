@@ -4,7 +4,7 @@ function JoinDiscord(){
 
     return(
 
-        <div className=" p-10 items-center border shadow md:flex-row w-screen  dark:border-gray-700 dark:bg-slate-900 ">
+        <div className=" p-10 items-center border shadow md:flex-row  dark:border-gray-700 dark:bg-slate-900 ">
             <div className=" border border-red-700 rounded-lg shadow md:flex-row flex">
                 <img className=" object-cover h-96 md:h-auto md:w-80 rounded-l-lg" src="/src/assets/20.png" alt="" />
                 <div className=" m-8">

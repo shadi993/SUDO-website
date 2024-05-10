@@ -7,7 +7,7 @@ function AboutDiscord(){
     ];
 
     return(
-    <div className=" p-10 items-center border shadow md:flex-row w-screen  dark:border-gray-700 dark:bg-slate-900 ">
+    <div className=" p-10 items-center border shadow md:flex-row dark:border-gray-700 dark:bg-slate-900 ">
         <h1 className=" text-white font-bold text-4xl text-center m-5">We offer</h1>
         <div className="grid grid-cols-3 gap-4">
             {
