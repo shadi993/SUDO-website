@@ -5,7 +5,7 @@ import Footer from "./footer"
 export const Projects = () => {
     return (
       <>
-        <div className="grid min-h-screen">
+        <div id="root" class="flex flex-col min-h-screen">
         <Menubar/>
         <ShowCaseProjects/>
         <div className="absolute bottom-0 w-full ">
