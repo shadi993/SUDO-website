@@ -4,7 +4,7 @@ function Serverstat(){
                          {title:'channels count', amount:'20'}];
 
     return(
-        <div className="p-10 items-center border shadow md:flex-row w-screen  dark:border-gray-700 dark:bg-slate-900">
+        <div className="p-10 items-center border shadow md:flex-row y-scrollbar  dark:border-gray-700 dark:bg-slate-900">
             <h1 className="text-white font-bold text-4xl text-center m-5">Server's info</h1>
             <div className="grid grid-cols-2 gap-4">
                 {
