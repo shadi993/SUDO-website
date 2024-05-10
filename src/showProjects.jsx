@@ -8,7 +8,7 @@ function ShowCaseProjects(){
   
 
     return(
-        <div className="p-10 items-center border shadow md:flex-row dark:border-gray-700 dark:bg-slate-900">
+        <div className="p-10 items-center border shadow md:flex-row dark:border-gray-700 dark:bg-slate-900 flex-1">
             <h1 className=" text-6xl text-white p-5 m-5">Projects</h1>
             <div className="grid grid-cols-3 gap-4">
                 {
