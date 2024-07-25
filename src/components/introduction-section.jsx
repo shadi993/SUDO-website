@@ -5,7 +5,7 @@ function JoinDiscord() {
   return (
     <div className="flex">
       <img
-        className="object-cover h-96 md:h-auto md:w-80 rounded-br-2xl rounded-tr-2xl"
+        className="object-cover h-96 md:h-auto md:w-80 rounded-2xl"
         src="/src/assets/logo.png"
         alt="Logo"
       />
