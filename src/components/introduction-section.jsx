@@ -1,12 +1,11 @@
 import { ExternalLinkIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Logo from "../assets/logo.png";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function JoinDiscord() {
   return (
-    <div className="flex flex-col md:flex-row md:items-center">
-      <LazyLoadImage
+    <div className="flex flex-col md:flex-row items-center md:items-center">
+      <img
         className="object-cover h-96 w-fit md:h-auto md:w-80 rounded-2xl"
         src={Logo}
         alt="Logo"
