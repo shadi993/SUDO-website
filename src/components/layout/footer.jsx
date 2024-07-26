@@ -27,7 +27,7 @@ function Footer() {
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               target="_blank"
             >
-              Secret stuff
+              Really secret stuff
             </a>
           </li>
         </ul>

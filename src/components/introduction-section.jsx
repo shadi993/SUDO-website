@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, ExternalLinkIcon } from "lucide-react";
 import { Button } from "./ui/button";
 
 function JoinDiscord() {
@@ -21,12 +21,22 @@ function JoinDiscord() {
           level.
         </p>
         <div className="flex flex-col md:flex-row gap-2">
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <Button
+              variant="secondary"
+              size="lg"
+              className="w-full flex items-center justify-center md:justify-start"
+            >
+              Super Secret <ExternalLinkIcon className="size-4 inline ml-2" />
+            </Button>
+          </a>
           <a href="https://discord.gg/sudors" target="_blank">
             <Button
               size="lg"
               className="w-full flex items-center justify-center md:justify-start"
             >
-              Join our Discord <ArrowRightIcon className="size-4 inline ml-2" />
+              Join our Discord{" "}
+              <ExternalLinkIcon className="size-4 inline ml-2" />
             </Button>
           </a>
         </div>
