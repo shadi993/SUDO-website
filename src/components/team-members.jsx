@@ -1,7 +1,12 @@
 import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Separator } from "./ui/separator";
+import Shadi from "../assets/avatars/shadi.png";
+import Mika from "../assets/avatars/Mika.png";
+import Async from "../assets/avatars/Async.png";
+import Skerath from "../assets/avatars/skerath.png";
+import Jackie from "../assets/avatars/jackie.png";
+
 const RANK_COLORS = {
   Owner: "accent",
   Supervisor: "default",
@@ -9,11 +14,11 @@ const RANK_COLORS = {
 };
 
 export const TEAM = [
-  { name: "Shadi", rank: "Owner", image: "/src/assets/avatars/shadi.png" },
-  { name: "Mika", rank: "Supervisor", image: "/src/assets/avatars/Mika.png" },
-  { name: "Async", rank: "Mod", image: "/src/assets/avatars/Async.png" },
-  { name: "Skerath", rank: "Mod", image: "/src/assets/avatars/skerath.png" },
-  { name: "Jackie", rank: "Mod", image: "/src/assets/avatars/jackie.png" },
+  { name: "Shadi", rank: "Owner", image: Shadi },
+  { name: "Mika", rank: "Supervisor", image: Mika },
+  { name: "Async", rank: "Mod", image: Async },
+  { name: "Skerath", rank: "Mod", image: Skerath },
+  { name: "Jackie", rank: "Mod", image: Jackie },
 ];
 
 function Team() {
