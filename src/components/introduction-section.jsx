@@ -1,12 +1,12 @@
-import { ArrowRightIcon, ExternalLinkIcon } from "lucide-react";
+import { ExternalLinkIcon } from "lucide-react";
 import { Button } from "./ui/button";
-
+import Logo from "../assets/logo.png";
 function JoinDiscord() {
   return (
     <div className="flex flex-col md:flex-row md:items-center">
       <img
         className="object-cover h-96 w-fit md:h-auto md:w-80 rounded-2xl"
-        src="/src/assets/logo.png"
+        src={Logo}
         alt="Logo"
       />
       <div className="md:m-8 mt-6 md:mt-0 my-auto">
