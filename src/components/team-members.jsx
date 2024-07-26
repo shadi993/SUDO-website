@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import Shadi from "../assets/avatars/shadi.png";
 import Mika from "../assets/avatars/Mika.png";
 import Async from "../assets/avatars/Async.png";
@@ -33,7 +35,7 @@ function Team() {
         {TEAM.map((member) => (
           <Card key={member.name} className="flex flex-col h-full group">
             <CardContent>
-              <img
+              <LazyLoadImage
                 className="flex self-center rounded-l-lg w-auto p-4 group-hover:scale-105 transition-transform"
                 src={member.image}
                 alt={member.name}

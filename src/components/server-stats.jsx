@@ -32,12 +32,6 @@ const serverInfo = [
     description: "Our growing, friendly staff team is here to help.",
     amount: TEAM.length,
   },
-  {
-    key: "channels",
-    title: "Another Count 2",
-    description: "A description",
-    amount: "500",
-  },
 ];
 
 function ServerStat() {
@@ -46,7 +40,7 @@ function ServerStat() {
       <h1 className="text-foreground font-bold text-4xl text-center mb-16 mt-16">
         Server Statistics
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {serverInfo.map((stat) => (
           <Card className="max-w-full md:max-w-sm flex flex-col h-full">
             <CardHeader className="p-4 pb-0">
