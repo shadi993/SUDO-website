@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/logo-transparent.png";
 
 function Menubar() {
@@ -14,24 +14,24 @@ function Menubar() {
           </div>
           <nav className="flex items-center">
             <ul className="grid grid-flow-col gap-x-6 text-foreground font-semibold">
-              <NavLink
+              <Link
                 to="/"
                 className="py-2 pr-2 hover:text-primary transition-colors duration-200"
               >
                 Home
-              </NavLink>
-              <NavLink
+              </Link>
+              <Link
                 to="/projects"
                 className="py-2 px-3 hover:text-primary transition-colors duration-200 "
               >
                 Projects
-              </NavLink>
-              <NavLink
+              </Link>
+              <Link
                 to="/our-team"
                 className="py-2 px-3 hover:text-primary transition-colors duration-200"
               >
                 Our Team
-              </NavLink>
+              </Link>
             </ul>
           </nav>
         </div>
