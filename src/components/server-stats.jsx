@@ -1,4 +1,4 @@
-import { ChartContainer, ChartTooltipContent } from "./ui/chart";
+import { ChartContainer } from "./ui/chart";
 import {
   Card,
   CardContent,

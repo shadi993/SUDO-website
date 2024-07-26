@@ -1,6 +1,7 @@
 import { ExternalLinkIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Logo from "../assets/logo.png";
+
 function JoinDiscord() {
   return (
     <div className="flex flex-col md:flex-row md:items-center">
