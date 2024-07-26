@@ -21,7 +21,7 @@ function JoinDiscord() {
           level.
         </p>
         <div className="flex flex-col md:flex-row gap-2">
-          <a href="https://discord.gg/sudors">
+          <a href="https://discord.gg/sudors" target="_blank">
             <Button
               size="lg"
               className="w-full flex items-center justify-center md:justify-start"

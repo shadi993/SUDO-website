@@ -7,6 +7,7 @@ function Footer() {
             <a
               className="hover:text-primary transition-colors duration-200"
               href="https://discord.gg/sudors"
+              target="_blank"
             >
               Discord server
             </a>
@@ -15,6 +16,7 @@ function Footer() {
             <a
               className="hover:text-primary transition-colors duration-200"
               href="https://twitter.com/sudoUwU"
+              target="_blank"
             >
               Twitter/X
             </a>
@@ -23,6 +25,7 @@ function Footer() {
             <a
               className="hover:text-primary transition-colors duration-200"
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              target="_blank"
             >
               Secret stuff
             </a>
