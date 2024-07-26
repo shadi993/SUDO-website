@@ -7,9 +7,9 @@ import Footer from "./components/layout/footer.jsx";
 
 function App() {
   return (
-    <div className="bg-background text-foreground pt-4">
+    <div className="bg-background text-foreground flex flex-col min-h-screen pt-4">
       <Header />
-      <div className="container mt-8">
+      <div className="container mt-8 flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
