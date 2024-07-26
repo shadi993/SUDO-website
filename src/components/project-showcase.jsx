@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
-import { Separator } from "./ui/separator";
+
 const projects = [
   {
     name: "Sudo Website",
@@ -20,16 +20,15 @@ const projects = [
 function ProjectShowcase() {
   return (
     <div className="w-full">
-      <div className="flex flex-col items-center text-center">
+      <div className="flex flex-col items-center text-center mb-8">
         <h1 className="text-4xl font-semibold text-foreground mb-2">
           Projects
         </h1>
         <p className=" text-neutral-200">
           A short description about the projects.
         </p>
-        <Separator className="w-12 my-6 mb-8 bg-primary shadow" />
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {projects.map((project) => (
           <Card key={project.name} className="flex flex-col h-full">
             <CardContent className="flex flex-col flex-grow ">

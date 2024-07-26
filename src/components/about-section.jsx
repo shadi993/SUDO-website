@@ -26,12 +26,12 @@ const weOffers = [
 
 function AboutDiscord() {
   return (
-    <div className="text-center">
+    <div className="text-center mt-12 md:mt-0">
       <Badge>Why Sudo</Badge>
       <h1 className=" text-white font-bold text-4xl text-center my-8">
         Join our fast growing community
       </h1>
-      <div className="grid grid-cols-3 gap-4 mt-20">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-4 mt-20">
         {weOffers.map((offers) => (
           <Card className="bg-transparent border-none">
             <CardContent className="text-center">
@@ -39,7 +39,7 @@ function AboutDiscord() {
                 <div>
                   <offers.icon className="size-9 text-primary" />
                 </div>
-                <>{offers.title}</>
+                <div className="font-bold">{offers.title}</div>
               </CardTitle>
               <p
                 className="mt-2"

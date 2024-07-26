@@ -1,36 +1,33 @@
 function Footer() {
   return (
     <footer>
-      <div className="mt-20 p-10 items-center border shadow md:flex-row w-full">
-        <div className="text-white grid grid-cols-3 gap-4 m-5">
-          <ul>
-            <li>
-              <a href="">Home</a>
-            </li>
-            <li>
-              <a href="">Projects</a>
-            </li>
-            <li>
-              <a href="">Our Team</a>
-            </li>
-            <li>
-              <a href="">Contact</a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <a href="https://discord.gg/sudors">Discord server</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/sudoUwU">Twitter/X</a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                Secret stuff
-              </a>
-            </li>
-          </ul>
-        </div>
+      <div className="flex justify-center mt-20 mb-8">
+        <ul className="grid grid-flow-col gap-x-8 text-foreground">
+          <li>
+            <a
+              className="hover:text-primary transition-colors duration-200"
+              href="https://discord.gg/sudors"
+            >
+              Discord server
+            </a>
+          </li>
+          <li>
+            <a
+              className="hover:text-primary transition-colors duration-200"
+              href="https://twitter.com/sudoUwU"
+            >
+              Twitter/X
+            </a>
+          </li>
+          <li>
+            <a
+              className="hover:text-primary transition-colors duration-200"
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            >
+              Secret stuff
+            </a>
+          </li>
+        </ul>
       </div>
     </footer>
   );

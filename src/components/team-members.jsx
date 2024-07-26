@@ -8,7 +8,7 @@ const RANK_COLORS = {
   Mod: "mod",
 };
 
-const TEAM = [
+export const TEAM = [
   { name: "Shadi", rank: "Owner", image: "/src/assets/avatars/shadi.png" },
   { name: "Mika", rank: "Supervisor", image: "/src/assets/avatars/Mika.png" },
   { name: "Async", rank: "Mod", image: "/src/assets/avatars/Async.png" },
@@ -24,7 +24,7 @@ function Team() {
           Our Team
         </h1>
       </div>
-      <div className="grid grid-cols-3 gap-4 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
         {TEAM.map((member) => (
           <Card key={member.name} className="flex flex-col h-full group">
             <CardContent>
