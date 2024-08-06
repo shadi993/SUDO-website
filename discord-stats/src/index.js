@@ -3,6 +3,13 @@ import { Redis } from "@upstash/redis/cloudflare";
 const SERVER_STATISTICS_KEY = "serverStatistics";
 const CACHE_EXPIRATION_TIME = 3600; // Worker Cache expiration time in seconds
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+  "Access-Control-Max-Age": "86400",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
 export default {
   async scheduled(event, env, ctx) {
     await handleEvent(env);
@@ -14,7 +21,6 @@ export default {
 
     let response = await cache.match(cacheUrl);
     if (response) {
-      response.headers.set("Access-Control-Allow-Origin", "*");
       return response;
     }
 
@@ -36,7 +42,7 @@ export default {
       status: 200,
       headers: {
         "Cache-Control": `max-age=${CACHE_EXPIRATION_TIME}`,
-        "Access-Control-Allow-Origin": "*",
+        ...corsHeaders,
       },
     });
 

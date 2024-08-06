@@ -17,7 +17,7 @@ class ApiService {
     }
 
     const response = await fetch(`${this.baseUrl}${endpoint}`, config);
-    console.log(response);
+
     if (!response.ok) {
       const error = await response.text();
       throw new Error(

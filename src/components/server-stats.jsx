@@ -7,42 +7,50 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Bar, BarChart, Rectangle, XAxis } from "recharts";
-import { TEAM } from "./team-members";
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-service";
 
-const initialServerInfo = [
-  {
-    key: "members",
-    unit: "members",
-    title: "Members Count",
-    description: "Our community is growing every day.",
-    amount: "300+",
-  },
-  {
-    key: "channels",
-    unit: "channels",
-    title: "Channels Count",
-    description:
-      "We are constantly adding new channels and open to suggestions.",
-    amount: "20",
-  },
-  {
-    key: "staff",
-    unit: "staff members",
-    title: "Staff Members",
-    description: "Our growing, friendly staff team is here to help.",
-    amount: TEAM.length,
-  },
-];
-
 function ServerStat() {
-  const [serverInfo, setServerInfo] = useState(initialServerInfo);
+  const [serverInfo, setServerInfo] = useState([]);
+
   useEffect(() => {
-    apiClient.get().then((r) => {
-      console.log(r);
-    });
-  }, []);
+    apiClient
+      .get("?v=3")
+      .then((serverStats) => {
+        const { serverName, memberCount, channelCount, staffMemberCount } =
+          serverStats;
+        setServerInfo([
+          {
+            key: "members",
+            unit: "members",
+            title: "Members Count",
+            description: "Our community is growing every day.",
+            amount: `${memberCount}+`,
+          },
+          {
+            key: "channels",
+            unit: "channels",
+            title: "Channels Count",
+            description:
+              "We are constantly adding new channels and open to suggestions.",
+            amount: channelCount,
+          },
+          {
+            key: "staff",
+            unit: "staff members",
+            title: "Staff Members",
+            description: "Our growing, friendly staff team is here to help.",
+            amount: staffMemberCount,
+          },
+        ]);
+      })
+      .catch((e) => {
+        console.log(e);
+        // Couldnt load the data!
+        // do something else?
+      });
+  }, [serverInfo]);
+
   return (
     <div>
       <h1 className="text-foreground font-bold text-4xl text-center mb-16 mt-16">
