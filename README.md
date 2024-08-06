@@ -53,4 +53,8 @@ wrangler publish discord-stats/src/index.js
 
 With a bit of luck, the worker is ready to go!
 
-View the worker on your cloudflare Workers & Pages panel.
+View the worker on your cloudflare Workers & Pages panel, and copy the URL of it.
+
+It looks like: https://discord-stats.myusername.workers.dev
+
+and put that url at the bottom of **src/services/api-service**

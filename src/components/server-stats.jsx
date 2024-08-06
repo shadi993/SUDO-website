@@ -8,7 +8,8 @@ import {
 } from "./ui/card";
 import { Bar, BarChart, Rectangle, XAxis } from "recharts";
 import { TEAM } from "./team-members";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import apiClient from "../services/api-service";
 
 const initialServerInfo = [
   {
@@ -37,7 +38,11 @@ const initialServerInfo = [
 
 function ServerStat() {
   const [serverInfo, setServerInfo] = useState(initialServerInfo);
-
+  useEffect(() => {
+    apiClient.get().then((r) => {
+      console.log(r);
+    });
+  }, []);
   return (
     <div>
       <h1 className="text-foreground font-bold text-4xl text-center mb-16 mt-16">

@@ -14,6 +14,7 @@ export default {
 
     let response = await cache.match(cacheUrl);
     if (response) {
+      response.headers.set("Access-Control-Allow-Origin", "*");
       return response;
     }
 
@@ -35,6 +36,8 @@ export default {
       status: 200,
       headers: { "Cache-Control": `max-age=${CACHE_EXPIRATION_TIME}` },
     });
+
+    response.headers.set("Access-Control-Allow-Origin", "*");
 
     // Cache the response
     ctx.waitUntil(cache.put(cacheUrl, response.clone()));
