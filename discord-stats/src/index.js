@@ -34,10 +34,11 @@ export default {
 
     response = new Response(serverStatistics, {
       status: 200,
-      headers: { "Cache-Control": `max-age=${CACHE_EXPIRATION_TIME}` },
+      headers: {
+        "Cache-Control": `max-age=${CACHE_EXPIRATION_TIME}`,
+        "Access-Control-Allow-Origin": "*",
+      },
     });
-
-    response.headers.set("Access-Control-Allow-Origin", "*");
 
     // Cache the response
     ctx.waitUntil(cache.put(cacheUrl, response.clone()));
