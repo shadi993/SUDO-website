@@ -8,8 +8,9 @@ import {
 } from "./ui/card";
 import { Bar, BarChart, Rectangle, XAxis } from "recharts";
 import { TEAM } from "./team-members";
+import { useState } from "react";
 
-const serverInfo = [
+const initialServerInfo = [
   {
     key: "members",
     unit: "members",
@@ -35,6 +36,8 @@ const serverInfo = [
 ];
 
 function ServerStat() {
+  const [serverInfo, setServerInfo] = useState(initialServerInfo);
+
   return (
     <div>
       <h1 className="text-foreground font-bold text-4xl text-center mb-16 mt-16">
