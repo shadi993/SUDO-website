@@ -1,6 +1,6 @@
 import { Redis } from "@upstash/redis/cloudflare";
 
-const CACHE_VERSION = "v0.0.3";
+const CACHE_VERSION = "v0.0.6";
 const SERVER_STATISTICS_KEY = `serverStatistics_${CACHE_VERSION}`;
 const CACHE_EXPIRATION_TIME = 3600; // Worker Cache expiration time in seconds
 const REDIS_EXPIRE_TIME = 6.048e8; // Redis expiration time in seconds (7 days)
