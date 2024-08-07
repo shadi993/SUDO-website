@@ -49,7 +49,7 @@ function ServerStat() {
         // Couldnt load the data!
         // do something else?
       });
-  }, [serverInfo]);
+  }, []);
 
   return (
     <div>
