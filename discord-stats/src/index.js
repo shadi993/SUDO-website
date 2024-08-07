@@ -1,9 +1,10 @@
 import { Redis } from "@upstash/redis/cloudflare";
 
-const CACHE_VERSION = "v0.0.2";
+const CACHE_VERSION = "v0.0.3";
 const SERVER_STATISTICS_KEY = `serverStatistics_${CACHE_VERSION}`;
 const CACHE_EXPIRATION_TIME = 3600; // Worker Cache expiration time in seconds
 const REDIS_EXPIRE_TIME = 6.048e8; // Redis expiration time in seconds (7 days)
+const ROLES_PRIORITY = ["Owner", "supervisor", "Moderator"];
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -88,7 +89,18 @@ async function handleEvent(env, existingRedis) {
 
     const roles = guild.roles;
     function fetchRoleName(roleId) {
-      return roles.find((role) => role.id === roleId).name;
+      const role = roles.find((role) => role.id === roleId);
+      return role ? role.name : null;
+    }
+
+    function getHighestPriorityRole(member) {
+      const memberRoles = member.roles.map((roleId) => fetchRoleName(roleId));
+      for (const role of ROLES_PRIORITY) {
+        if (memberRoles.includes(role)) {
+          return role;
+        }
+      }
+      return null;
     }
 
     const serverStatistics = {
@@ -97,13 +109,11 @@ async function handleEvent(env, existingRedis) {
       channelCount,
       staffMemberCount,
       staff: staffMembers.map((member) => {
-        const staffRole = member.roles.find((roleId) =>
-          staffMemberRoles.includes(roleId)
-        );
+        const staffRole = getHighestPriorityRole(member);
         return {
           displayName: member.user.global_name || member.user.username,
-          role: fetchRoleName(staffRole),
-          avatar: `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}.png`,
+          role: staffRole,
+          avatar: `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}.png?size=1024`,
         };
       }),
     };
