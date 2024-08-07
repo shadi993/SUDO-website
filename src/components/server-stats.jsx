@@ -15,7 +15,7 @@ function ServerStat() {
 
   useEffect(() => {
     apiClient
-      .get("?v=3")
+      .get()
       .then((serverStats) => {
         const { serverName, memberCount, channelCount, staffMemberCount } =
           serverStats;
