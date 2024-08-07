@@ -1,7 +1,9 @@
 import { Redis } from "@upstash/redis/cloudflare";
 
-const SERVER_STATISTICS_KEY = "serverStatistics";
+const CACHE_VERSION = "v0.0.2";
+const SERVER_STATISTICS_KEY = `serverStatistics_${CACHE_VERSION}`;
 const CACHE_EXPIRATION_TIME = 3600; // Worker Cache expiration time in seconds
+const REDIS_EXPIRE_TIME = 6.048e8; // Redis expiration time in seconds (7 days)
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -18,6 +20,7 @@ export default {
   async fetch(request, env, ctx) {
     const cache = caches.default;
     const cacheUrl = new URL(request.url);
+    cacheUrl.searchParams.set("version", CACHE_VERSION); // Add version to cache key
 
     let response = await cache.match(cacheUrl);
     if (response) {
@@ -77,21 +80,40 @@ async function handleEvent(env, existingRedis) {
     const serverName = guild.name;
     const memberCount = guild.approximate_member_count;
     const channelCount = channels.length;
-    const staffMemberCount = members.filter((member) =>
+    const staffMembers = members.filter((member) =>
       staffMemberRoles.some((staffRoleId) => member.roles.includes(staffRoleId))
-    ).length;
+    );
+
+    const staffMemberCount = staffMembers.length;
+
+    const roles = guild.roles;
+    function fetchRoleName(roleId) {
+      return roles.find((role) => role.id === roleId).name;
+    }
 
     const serverStatistics = {
       serverName,
       memberCount,
       channelCount,
       staffMemberCount,
+      staff: staffMembers.map((member) => {
+        const staffRole = member.roles.find((roleId) =>
+          staffMemberRoles.includes(roleId)
+        );
+        return {
+          displayName: member.user.global_name || member.user.username,
+          role: fetchRoleName(staffRole),
+          avatar: `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}.png`,
+        };
+      }),
     };
 
     console.log("Server Statistics:", serverStatistics);
 
     // Store the statistics in Redis
-    await redis.set(SERVER_STATISTICS_KEY, JSON.stringify(serverStatistics));
+    await redis.set(SERVER_STATISTICS_KEY, JSON.stringify(serverStatistics), {
+      ex: REDIS_EXPIRE_TIME,
+    });
 
     // Also store the statistics in the cache with expiration
     return serverStatistics;
@@ -132,13 +154,33 @@ class DiscordAPI {
   }
 
   async fetchMembers(guildId) {
-    const url = `${this.baseURL}/guilds/${guildId}/members?limit=1000`; // Adjust the limit as needed
-    const response = await fetch(url, { headers: this.headers });
+    let allMembers = [];
+    let lastMemberId = null;
+    let hasMoreMembers = true;
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch members: ${response.statusText}`);
+    while (hasMoreMembers) {
+      const url = new URL(`${this.baseURL}/guilds/${guildId}/members`);
+      url.searchParams.set("limit", "1000");
+      if (lastMemberId) {
+        url.searchParams.set("after", lastMemberId);
+      }
+
+      const response = await fetch(url.toString(), { headers: this.headers });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch members: ${response.statusText}`);
+      }
+
+      const members = await response.json();
+      allMembers = allMembers.concat(members);
+
+      if (members.length < 1000) {
+        hasMoreMembers = false;
+      } else {
+        lastMemberId = members[members.length - 1].user.id;
+      }
     }
 
-    return await response.json();
+    return allMembers;
   }
 }
