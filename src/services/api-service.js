@@ -32,5 +32,7 @@ class ApiService {
   }
 }
 
-const apiService = new ApiService("https://discord-stats.shadihorani93.workers.dev/");
+const apiService = new ApiService(
+  "https://discord-stats.shadihorani93.workers.dev/?v=5"
+);
 export default apiService;
