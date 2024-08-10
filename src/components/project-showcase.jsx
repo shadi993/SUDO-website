@@ -25,7 +25,7 @@ function ProjectShowcase() {
           Projects
         </h1>
         <p className=" text-neutral-200">
-          A short description about the projects.
+          For showcasing Projects that is made by our members.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
