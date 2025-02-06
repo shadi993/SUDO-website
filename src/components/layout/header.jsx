@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/logo-transparent.png";
+import { useNavigate } from "react-router";
 
 function Menubar() {
   const [isOpen, setIsOpen] = useState(false);
