@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo-transparent.png";
 
 function Menubar() {
@@ -10,7 +10,8 @@ function Menubar() {
   }, [isOpen]);
 
   const handleLogoClick = () => {
-    navigate("/"); // Navigate to the home route
+    const navigate = useNavigate();
+    navigate("/");
   };
 
   return (
@@ -24,7 +25,8 @@ function Menubar() {
               alt="Logo"
               onClick={handleLogoClick}
             />
-            <h1 className="font-audiowide font-bold text-2xl select-none">
+            <h1 className="font-audiowide font-bold text-2xl select-none cursor-pointer"
+              onClick={handleLogoClick}>
               SUDO
             </h1>
           </div>
