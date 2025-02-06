@@ -9,6 +9,10 @@ function Menubar() {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
+  const handleLogoClick = () => {
+    navigate("/"); // Navigate to the home route
+  };
+
   return (
     <header className="bg-background text-foreground">
       <div className="container mx-auto px-4 py-2">
@@ -16,8 +20,9 @@ function Menubar() {
           <div className="flex items-center text-center">
             <img
               src={Logo}
-              className="h-12 w-12 rounded-full mr-2"
+              className="h-12 w-12 rounded-full mr-2 cursor-pointer"
               alt="Logo"
+              onClick={handleLogoClick}
             />
             <h1 className="font-audiowide font-bold text-2xl select-none">
               SUDO
