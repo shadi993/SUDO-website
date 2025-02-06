@@ -5,13 +5,13 @@ import { useNavigate } from "react-router";
 
 function Menubar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate(); // Move useNavigate here
 
   const toggleMenu = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
   const handleLogoClick = () => {
-    const navigate = useNavigate();
     navigate("/");
   };
 
